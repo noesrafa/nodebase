@@ -23,6 +23,7 @@ import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import { toast } from "sonner";
+import Image from "next/image";
 
 const registerSchema = z
   .object({
@@ -83,9 +84,21 @@ export function SignupForm() {
               <div className="grid gap-6">
                 <div className="flex flex-col gap-4">
                   <Button variant="outline" className="w-full" type="button">
+                    <Image
+                      alt="Github"
+                      src="/logos/github.svg"
+                      width={20}
+                      height={20}
+                    />
                     Continue with Github
                   </Button>
                   <Button variant="outline" className="w-full" type="button">
+                    <Image
+                      alt="Google"
+                      src="/logos/google.svg"
+                      width={20}
+                      height={20}
+                    />
                     Continue with Google
                   </Button>
                 </div>
