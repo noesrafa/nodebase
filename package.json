@@ -9,7 +9,10 @@
     "lint": "eslint",
     "prisma:migrate": "npx prisma migrate dev",
     "prisma:studio": "npx prisma studio",
-    "prisma:reset": "npx prisma migrate reset"
+    "prisma:reset": "npx prisma migrate reset",
+    "inngestcli:dev": "npx inngest-cli@latest dev",
+    "inngest:dev": "inngest-cli dev",
+    "dev:all": "mprocs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -51,8 +54,10 @@
     "cmdk": "^1.1.1",
     "date-fns": "^4.1.0",
     "embla-carousel-react": "^8.6.0",
+    "inngest": "^3.44.1",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.545.0",
+    "mprocs": "^0.7.3",
     "next": "15.5.4",
     "next-themes": "^0.4.6",
     "react": "19.1.0",
@@ -75,6 +80,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.5.4",
+    "inngest-cli": "^1.12.1",
     "prisma": "^6.16.3",
     "tailwindcss": "^4",
     "tsx": "^4.20.6",
