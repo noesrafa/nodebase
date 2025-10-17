@@ -18,6 +18,14 @@ export default function Home() {
     })
   );
 
+  const testAI = useMutation(
+    trpc.testAI.mutationOptions({
+      onSuccess: (data) => {
+        toast.success(`AI response: ${data}`);
+      },
+    })
+  );
+
   console.log(workflows);
 
   return (
@@ -30,6 +38,14 @@ export default function Home() {
         disabled={createWorkflow.isPending}
       >
         Create Workflow
+      </Button>
+      <Button
+        onClick={() => {
+          testAI.mutate();
+        }}
+        disabled={testAI.isPending}
+      >
+        Test AI
       </Button>
     </div>
   );
