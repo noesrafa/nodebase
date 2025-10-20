@@ -12,7 +12,6 @@ export const auth = betterAuth({
     enabled: true,
     autoSignIn: true,
   },
-
   plugins: [
     polar({
       client: polarClient,
@@ -21,11 +20,11 @@ export const auth = betterAuth({
         checkout({
           products: [
             {
-              productId: "123-456-789", // ID of Product from Polar Dashboard
-              slug: "pro", // Custom slug for easy reference in Checkout URL, e.g. /checkout/pro
+              productId: "f80c0da1-f2aa-47cf-99df-7b470a6a783e",
+              slug: "Nodebase-Pro",
             },
           ],
-          successUrl: "/success?checkout_id={CHECKOUT_ID}",
+          successUrl: process.env.POLAR_SUCCESS_URL,
           authenticatedUsersOnly: true,
         }),
         portal(),
