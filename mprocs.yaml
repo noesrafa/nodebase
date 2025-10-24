@@ -4,3 +4,7 @@ procs:
 
   next:
     cmd: ["npm", "run", "dev"]
+
+  prisma-studio:
+    cmd: ["npm", "run", "prisma:studio"]
+
