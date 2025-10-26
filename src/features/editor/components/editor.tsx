@@ -18,11 +18,16 @@ import {
   Controls,
   MiniMap,
   Panel,
+  SelectionMode,
 } from "@xyflow/react";
 
 import "@xyflow/react/dist/style.css";
 import { useCallback, useState } from "react";
 import AddNodeButton from "./add-node-button";
+import { useSetAtom } from "jotai";
+import { editorStore } from "../store/atoms";
+
+const panOnDrag = [1, 2];
 
 export const EditorLoading = () => {
   return <LoadingView message="Loading editor" />;
@@ -34,6 +39,8 @@ export const EditorError = () => {
 
 export const Editor = ({ workflowId }: { workflowId: string }) => {
   const { data: workflow } = useSuspenseWorkflow(workflowId);
+
+  const setEditor = useSetAtom(editorStore);
 
   const [nodes, setNodes] = useState<Node[]>(workflow.nodes);
   const [edges, setEdges] = useState<Edge[]>(workflow.edges);
@@ -58,11 +65,18 @@ export const Editor = ({ workflowId }: { workflowId: string }) => {
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
+        nodeTypes={nodeComponents}
+        onInit={setEditor}
+        snapGrid={[10, 10]}
+        snapToGrid
         fitView
+        panOnScroll
+        selectionOnDrag
+        panOnDrag={panOnDrag}
+        selectionMode={SelectionMode.Partial}
         proOptions={{
           hideAttribution: true,
         }}
-        nodeTypes={nodeComponents}
       >
         <Background />
         <Controls />
